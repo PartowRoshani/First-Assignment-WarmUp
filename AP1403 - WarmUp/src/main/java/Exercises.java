@@ -50,7 +50,7 @@ public class Exercises {
 
         long fib1 = 0;
         long fib2 = 1;
-        long index = 2;
+        long index = 1;
         while(fib2 < n)
         {
             long temp = fib2;
