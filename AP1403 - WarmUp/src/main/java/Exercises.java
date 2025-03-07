@@ -4,8 +4,28 @@ public class Exercises {
         complete this function to check if the input number is prime or not
      */
     public boolean isPrime(long n) {
-        // todo
-        return false;
+        if(n <= 1)
+        {
+            return false;
+        }
+        if(n == 2 || n == 3)
+        {
+            return true;
+        }
+        if(n % 2 == 0 )
+        {
+            return false;
+        }
+        else
+        {
+            for (long i = 3; i * i <= n ; i += 2) {
+                if (n % i == 0) {
+                    return false;
+                }
+
+            }
+        }
+       return true;
     }
 
     /*
@@ -15,8 +35,36 @@ public class Exercises {
         if the input is not a fibonacci number with description above, return -1
      */
     public long fibonacciIndex(long n) {
-        // todo
-        return -1;
+        if(n < 0 )
+        {
+            return -1;
+        }
+        if(n == 0)
+        {
+            return 0;
+        }
+        if(n == 1)
+        {
+            return 1;
+        }
+
+        long fib1 = 0;
+        long fib2 = 1;
+        long index = 1;
+        while(fib2 < n)
+        {
+            long temp = fib2;
+            fib2 = fib1+fib2;
+            fib1 = temp;
+            index++;
+        }
+        if(fib2 == n)
+        {
+            return index;
+        }
+        else {
+            return -1;
+        }
     }
 
     /*
@@ -38,8 +86,21 @@ public class Exercises {
         the output has to be a two-dimensional array of characters, so don't just print the triangle!
      */
     public char[][] generateTriangle(int n) {
-        // todo
-        return null;
+
+        if (n <= 0) return new char[0][0];
+        char[][] triangle = new char[n][];
+        for (int i = 0; i < n; i++) {
+            triangle[i] = new char[i + 1];
+
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i || i == n - 1) {
+                    triangle[i][j] = '*';
+                } else {
+                    triangle[i][j] = ' ';
+                }
+            }
+        }
+        return triangle;
     }
 
     public static void main(String[] args) {
